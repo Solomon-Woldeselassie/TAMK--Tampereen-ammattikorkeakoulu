@@ -1,0 +1,133 @@
+<div class="container">
+    <div class="col-sm-6"><form class="form-inline">Filter word: <input type="text" ng-model="search" class="form-control"></form></div>
+    <div class="col-sm-6"><button class="btn btn-success" data-toggle="modal" data-target="#NewModal">New</button></div>
+    <table class="table table-condensed">
+        <tr>
+            <th>Id</th>
+            <th>Department</th>
+            <th> </th>
+        </tr>
+        <tr ng-repeat="department in jsondata | filter:search">
+            <td>{{department.id}} </td>
+            <td>{{department.name}}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="show(department)" data-toggle="modal" data-target="#ShowModal">Show</button>
+                <button class="btn btn-info" ng-click="openedit(department)" data-toggle="modal" data-target="#EditModal">Edit</button>
+                <button class="btn btn-danger" ng-click="opendelete(department)" data-toggle="modal" data-target="#DeleteModal">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- Show Modal -->
+<div id="ShowModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr>
+                        <td>Id</td>
+                        <td>{{showdepartment.id}}</td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td>{{showdepartment.name}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Delete Modal -->
+<div id="DeleteModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                You are deleting department <b>{{deleteCandidate.name}}</b>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal" ng-click="delete()">Confirm delete!</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- New Modal -->
+<div id="NewModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr>
+                        <td>Id</td>
+                        <td><input type="text" ng-model="newDepId"></td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td><input type="text" ng-model="newDepName"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="saveNew()">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<!-- Edit Modal -->
+<div id="EditModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr>
+                        <td>Id</td>
+                        <td><input type="text" ng-model="depUnderEdit.id"></td>
+                    </tr>
+                    <tr>
+                        <td>Department</td>
+                        <td><input type="text" ng-model="depUnderEdit.name"></td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal" ng-click="saveEdit()">Save</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+
+    </div>
+</div>

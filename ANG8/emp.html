@@ -1,0 +1,76 @@
+<div class="container">
+    <div class="col-sm-6"><form class="form-inline">Filter word: <input type="text" ng-model="search" class="form-control"></form></div>
+    <div class="col-sm-6"><button class="btn btn-success">New</button></div>
+    <table class="table table-condensed">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Department</th>
+            <th>Salary</th>
+            <th> </th>
+        </tr>
+        <tr ng-repeat="employee in jsondata | filter:search">
+            <td>{{employee.lname}} {{employee.fname}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.address}}</td>
+            <td>{{employee.dname}}</td>
+            <td>{{employee.salary | number:0}}</td>
+            <td>
+                <button class="btn btn-primary" ng-click="show(employee)" data-toggle="modal" data-target="#myModal">Show</button>
+                <button class="btn btn-info">Edit</button>
+                <button class="btn btn-danger">Delete</button>
+            </td>
+        </tr>
+    </table>
+</div>
+<!-- Show Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-sm">
+
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Modal Header</h4>
+            </div>
+            <div class="modal-body">
+                <table class="table">
+                    <tr>
+                        <td>Name</td>
+                        <td>{{showemployee.lname + " " + showemployee.fname}}</td>
+                    </tr>
+                    <tr>
+                        <td>Email</td>
+                        <td>{{showemployee.email}}</td>
+                    </tr>
+                    <tr>
+                        <td>Address</td>
+                        <td>{{showemployee.address}}</td>
+                    </tr>
+                    <tr>
+                        <td>Salary</td>
+                        <td>{{showemployee.salary | number:0}}</td>
+                    </tr>
+                    <tr>
+                        <td>Birthday</td>
+                        <td>{{showemployee.bdate}}</td>
+                    </tr>
+                    <tr>
+                        <td>Sex</td>
+                        <td>{{showemployee.sex}}</td>
+                    </tr>
+                    <tr>
+                        <td>Boss</td>
+                        <td>{{showemployee.slname + " " + showemployee.sfname}}</td>
+                    </tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+

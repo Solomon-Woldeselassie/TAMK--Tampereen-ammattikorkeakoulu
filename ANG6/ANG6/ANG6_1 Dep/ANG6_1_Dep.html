@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="Ang6_1_Dep"> 
+<head >
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>Angular  exercise 6 no 1 (get Department table data from rest api)</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		
+		
+     	<script src="ANG6Dep.js"> </script>
+</head> 
+<body ng-controller="bodyController" ng-init="getdetails()">
+
+<div class="container">
+	<div class="nav navbar"> <h3>Record of Departments from REST API<h3>
+	
+	
+	
+				
+				<div>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th> Department ID </th>
+                                    <th> Manager ID </th>
+                                    <th> Department Name </th>
+                                    <th> Start Date </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  ng-repeat = "record in records " > 
+                                    <td>{{record.id}}</td>
+                                    <td>{{record.manager}}</td>
+                                    <td>{{record.dname}}</td>
+                                    <td>{{record.mgrstartdate}}</td>
+                                   
+                                    
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+		
+</div>
+
+
+</body>
+</html>

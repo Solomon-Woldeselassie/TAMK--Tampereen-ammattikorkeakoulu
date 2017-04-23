@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html ng-app="myApp"> 
+<head >
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title>angular exercise read and show json from server</title>
+	
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+		
+		
+     	<script src="myApp.js"> </script>
+</head> 
+<body ng-controller="bodyController" ng-init="getdetails()">
+
+<div class="container">
+	<div class="nav navbar"> <h3>Data from server...<h3>
+	
+				
+				<div>
+                        <table class="table table-striped table-hover">
+                            <thead>
+                            	
+                                <tr>
+                                    <th> ID</th>
+                                    <th> Name </th>
+                                    <th> Population </th>
+                                    <th> Percentage </th>
+                                    <th> Position </th>
+                                    
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr  ng-repeat = "Country in countries | orderBy:'-name'" > 
+                                    <td>{{Country.ID}}</td>
+                                    <td>{{Country.name}}</td>
+                                    <td>{{Country.population}}</td>
+                                    <td>{{Country.percentage}}</td>
+                                    <td>{{Country.position}}</td>
+                                </tr>
+                            </tbody>
+                        </table> 
+                    </div>
+		
+</div>
+
+
+</body>
+</html>

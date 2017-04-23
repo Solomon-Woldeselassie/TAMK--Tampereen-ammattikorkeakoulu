@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<title></title>
+	
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap-theme.min.css">
+
+	<!-- JQuery required by Bootstrap Javascript -->
+	<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+	
+<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+<script src="ownApp.js"></script>
+<body>
+<div class="container">
+<div ng-app="ownApp" ng-controller="bodycontroller">
+        <form>
+    Enter Name: <input type="text" ng-model="Addedname"><button ng-click="add1()">Add</button>
+	            <button ng-click="remove()">Delete</button>
+	    </form>
+		<h1 >Contact Names</h1>
+		<ul>
+		   
+		       <li ng-repeat="firstnames in names">{{firstnames}}</li>
+		   
+        </ul>	
+</div>	
+	
+</body>
+</html>
